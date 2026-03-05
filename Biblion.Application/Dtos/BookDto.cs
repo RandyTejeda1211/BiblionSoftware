@@ -11,7 +11,8 @@ namespace Biblion.Application.Dtos
 
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string Categoria { get; set; }
         public string Author { get; set; }
+        public string estado { get; set; }
     }
 }

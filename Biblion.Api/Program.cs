@@ -20,9 +20,10 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn
 
 //repository
 builder.Services.AddScoped<IBookRepository, BookRepository>();
-
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 //Service
 builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 

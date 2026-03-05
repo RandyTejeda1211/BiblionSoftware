@@ -10,43 +10,43 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Biblion.Infrastructure.Repositories
 {
-    public class BookRepository : IBookRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
-        public BookRepository(AppDbContext context)
+
+        public UserRepository(AppDbContext context)
         {
             _context = context;
         }
-
-        public async Task AddAsync(Book book)
+        public async Task AddAsync(User user)
         {
-            await _context.Books.AddAsync(book);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Guid id)
         {
-            var book = await _context.Books.FindAsync(id);
-            if (book != null)
+            var user = await _context.Users.FindAsync(id);
+            if (user != null)
             {
-                _context.Books.Remove(book);
+                _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
         }
 
-        public async Task<List<Book>> GetAllAsync()
+        public async Task<User> GetByEmailAsync(string email)
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        public async Task<Book> GetByIdAsync(Guid id)
+        public async Task<User> GetByIdAsync(Guid id)
         {
-            return await _context.Books.FindAsync(id);
+            return await _context.Users.FindAsync(id);
         }
 
-        public async Task UpdateAsync(Book book)
+        public async Task UpdateAsync(User user)
         {
-            _context.Books.Update(book);
+            _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
     }

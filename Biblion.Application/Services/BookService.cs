@@ -21,6 +21,11 @@ namespace Biblion.Application.Services
             await _bookRepository.AddAsync(book);
         }
 
+        public async Task DeleteAsync(Guid id)
+        {
+            await _bookRepository.DeleteAsync(id);
+        }
+
         public async Task<IEnumerable<Book>> GetAllAsync()
         {
             return await _bookRepository.GetAllAsync();
@@ -29,6 +34,11 @@ namespace Biblion.Application.Services
         public async Task<Book?> GetById(Guid id)
         {
             return await _bookRepository.GetByIdAsync(id);      
+        }
+
+        public async Task UpdateAsync(Book book)
+        {
+            await _bookRepository.UpdateAsync(book);
         }
     }
 }
