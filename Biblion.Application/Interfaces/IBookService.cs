@@ -12,5 +12,7 @@ namespace Biblion.Application.Interfaces
         Task<IEnumerable<Book>> GetAllAsync();
         Task<Book?> GetById(Guid id);
         Task AddAsync(Book book);
+        Task UpdateAsync(Book book);
+        Task DeleteAsync(Guid id);
     }
 }

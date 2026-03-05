@@ -31,6 +31,23 @@ namespace Biblion.Api.Controllers
             return Ok(book);
         }
 
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(Guid id, Book book)
+        {
+            if (id != book.Id)
+                return BadRequest();
 
+            await _bookService.UpdateAsync(book);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+           
+
+            await _bookService.DeleteAsync(id);
+            return NoContent();
+        }
     }
 }
