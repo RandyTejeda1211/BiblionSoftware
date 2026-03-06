@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Dtos\User\NewFolder\**" />
+    <EmbeddedResource Remove="Dtos\User\NewFolder\**" />
+    <None Remove="Dtos\User\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Biblion.Domain\Biblion.Domain.csproj" />
+    <ProjectReference Include="..\Biblion.Infrastructure\Biblion.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

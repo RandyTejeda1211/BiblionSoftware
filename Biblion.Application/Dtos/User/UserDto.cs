@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblion.Domain.entities
+namespace Biblion.Application.Dtos.User
 {
-    public class User
+    public class UserDto
     {
-        public Guid Id { get; set; }
+       public Guid Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Matricula { get; set; }
-        public string Password { get; set; }
+        
 
-        public ICollection<Loan> loans { get; set; }
     }
 }
