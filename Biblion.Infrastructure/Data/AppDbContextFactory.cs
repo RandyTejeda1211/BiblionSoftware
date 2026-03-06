@@ -14,7 +14,7 @@ namespace Biblion.Infrastructure.Data
         {
             var options = new DbContextOptionsBuilder<AppDbContext>();
             options.UseSqlServer(
-                "Server=DESKTOP-FM13SL9\\SQLEXPRESS;Database=BiblionDB;Trusted_Connection=True;TrustServerCertificate=True"
+                "Server=tcp:biblionserver.database.windows.net,1433;Initial Catalog=BiblionDb;Persist Security Info=False;User ID=AdminBiblion;Password=Admin12@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
                 );
             return new AppDbContext(options.Options);
         }
