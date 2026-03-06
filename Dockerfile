@@ -3,9 +3,9 @@ WORKDIR /src
 
 COPY . .
 
-RUN dotnet restore
+RUN dotnet restore Biblion.Api/Biblion.Api.csproj
 
-RUN dotnet publish Biblion.Api.csproj -c Release -o /app/publish
+RUN dotnet publish Biblion.Api/Biblion.Api.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
