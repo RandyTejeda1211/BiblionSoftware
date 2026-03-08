@@ -27,6 +27,15 @@ builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ILoanService, LoanService>();
 
+//CQRS
+builder.Services.AddCors(opt => {
+    opt.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,7 +45,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
 app.UseHttpsRedirection();
+
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 
